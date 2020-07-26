@@ -71,8 +71,8 @@ class Home extends Component{
         const {results,gender,data} = this.state;
         return(
             <Fragment>
+                <UserFilter request={{results,gender}} changeRequest={this.handleChangeRequest}/>
                 <div id="ctr-home">
-                    <UserFilter request={{results,gender}} changeRequest={this.handleChangeRequest}/>
                     {
                         (data.results!==undefined)? <User data={data.results}/>:""
                         
