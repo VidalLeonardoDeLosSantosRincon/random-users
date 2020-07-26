@@ -1,4 +1,4 @@
-import React,{Component, Fragment} from "react";
+import React,{Component, PureComponent, Fragment} from "react";
 
 //assets
 import "../assets/css/pages/Home.css";
@@ -6,16 +6,18 @@ import "../assets/css/pages/Home.css";
 //components
 import UserFilter from "../components/UserFilter";
 import User from "../components/container/User";
+import Loading from "../components/global/Loading";
 
 
 
-class Home extends Component{
+class Home extends PureComponent{
     constructor(props){
         super(props);
         this.state = {
             results:10,
             gender:"",
-            data:[]
+            data:[],
+            loading:true
         }
 
         this.fetchRandomUser = this.fetchRandomUser.bind(this);
@@ -35,9 +37,14 @@ class Home extends Component{
     
         const req = await fetch(url);
         const data = await req.json();
-        this.setState({
-            data
-        })
+
+        if(req.ok){
+            this.setState({
+                data,
+                loading:false
+            })
+
+        }  
     }
 
     componentDidMount(){
@@ -68,18 +75,26 @@ class Home extends Component{
     }
 
     render(){
-        const {results,gender,data} = this.state;
-        return(
-            <Fragment>
-                <UserFilter request={{results,gender}} changeRequest={this.handleChangeRequest}/>
-                <div id="ctr-home">
-                    {
-                        (data.results!==undefined)? <User data={data.results}/>:""
-                        
-                    }
-                </div>
-            </Fragment>
-        );
+        const {results,gender,data, loading} = this.state;
+        if(loading){
+            return(
+                <Fragment>
+                    <Loading/>
+                </Fragment>
+            );
+        }else{
+            return(
+                <Fragment>
+                    <UserFilter request={{results,gender}} changeRequest={this.handleChangeRequest}/>
+                    <div id="ctr-home">
+                        {
+                            (data.results!==undefined)? <User data={data.results}/>:""
+                            
+                        }
+                    </div>
+                </Fragment>
+            );
+        }
     }
 }
 

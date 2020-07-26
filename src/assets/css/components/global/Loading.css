@@ -1,0 +1,16 @@
+.ctr-loading{
+    height:100vh;
+    width:100%;
+    padding:10px 25px;
+    box-sizing: border-box;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.ctr-loading img{
+    width:200px;
+    height:200px;
+}
