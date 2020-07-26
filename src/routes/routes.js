@@ -5,6 +5,7 @@ import {Route,Switch,BrowserRouter as Router} from "react-router-dom";
 import App from "../components/App";
 //pages
 import Home from "../pages/Home";
+import PageNotFound from "../pages/404";
 
 const AppRoutes = ()=>{
     return(
@@ -13,6 +14,7 @@ const AppRoutes = ()=>{
                 <Switch>
                     <Route exact path="/" component={Home}/>
                     <Route exact path="/home" component={Home}/>
+                    <Route default component={PageNotFound}/>
                 </Switch>
             </App>
         </Router>

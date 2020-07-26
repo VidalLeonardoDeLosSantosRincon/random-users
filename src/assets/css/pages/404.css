@@ -1,0 +1,36 @@
+.ctr-404{
+    width:100%;
+    height:100%;
+    padding: 100px 0 0 0;
+    background: white;
+    box-sizing: border-box;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+.ctr-404 img{
+    width:300px;
+    height:200px;
+    margin:50px 0;
+}
+
+.ctr-404 a{
+    text-decoration: none;
+    color:lightseagreen;
+    padding:5px 15px;
+    box-sizing: border-box;
+    border:2px solid lightseagreen;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.ctr-404 a:hover{
+    background: lightseagreen;
+    color:white;
+    border:2px solid seagreen;
+
+}
