@@ -30,17 +30,7 @@ class User extends Component{
         const {data} = this.state;
         return(
             <Fragment>
-                <div id="ctr-user" 
-                    style={{
-                        background:"white",
-                        padding:"20px 10px",
-                        boxSizing:"border-box",
-                        width:"100%",
-                        display:"flex",
-                        flexWrap:"wrap",
-                        justifyContent:"flex-start",
-                        alignItems:"flex-start"
-                    }}>
+                <div id="ctr-user">
                     {data.map((user,index)=>{
 
                         return(
